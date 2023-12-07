@@ -17,9 +17,12 @@ public class Wander : Abstract
 
     public override void UpdateState(Context ctx)
     {
-        ChoosingNewPositionToMove(10f, ctx);
+        ChoosingNewPositionToMove(ctx.PatrolArea, ctx);
         ctx.Agent.SetDestination(_finalPosition);
-        Debug.Log(_finalPosition);
+        if((ctx.Transform.position - ctx.IPTransform.position).sqrMagnitude <= Mathf.Pow(ctx.DetectionDistance, 2))
+        {
+            ctx.SwitchMovementStates(ctx._chaseState);
+        }
     }
 
 

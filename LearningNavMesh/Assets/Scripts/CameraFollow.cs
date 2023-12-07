@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         _camera = gameObject.transform;
-        _subject = GameObject.FindWithTag("Player").transform;
+        _subject = GameObject.FindWithTag("Enemy").transform;
     }
 
     // Update is called once per frame
